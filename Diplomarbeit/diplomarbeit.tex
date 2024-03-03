@@ -1,0 +1,401 @@
+\documentclass[
+    headings=optiontotocandhead,% Erweiterung für das optionale Argument der
+                                % Gliederungsbefehle aktiviert.
+    twoside,
+    numbers=noenddot,% Keine Punkte am Ende der Gliederungsnummern und davon
+                     % abgeleiteten Nummern
+    toc=flat, %Flache TOC --- kann man anpassen (auskommentieren)
+    12pt, % Schriftgröße
+    titlepage, % es wird eine Titelseite verwendet
+    parskip=full, % Abstand zwischen Absätzen (ganze Zeile)
+    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis aufführen
+    listof=flat, % mehr Abstand für grosse Zahlen
+    numbers=noenddot, % kein Punkt am Ende bei Nummern
+    %%enlargefirstpage,% Gibt es bei scrartcl nicht!!!!
+    bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+    %index=totoc, % Index im Inhaltsverzeichnis aufführen
+    %captions=tableheading, % Beschriftung von Tabellen für Ausgabe oberhalb
+                           % der Tabelle formatieren
+    %draft % Status des Dokuments (final/draft) draft hinzufügen zum anziegen
+    %%der zeilen ende
+    a4paper,DIV=14,
+    BCOR=15mm,
+    % captions=tablesignature,
+]{scrbook}
+
+\setcounter{secnumdepth}{3}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[english, ngerman]{babel, varioref} % your native language must be the last one!!
+
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{blindtext}
+
+%% Aufzählungen nicht so weit einrücken
+\usepackage[inline]{enumitem}
+%\setitemize{leftmargin=*}
+% Listen etwas wenige einrücken, erfordert enumitem
+\setitemize{leftmargin=*}
+
+\usepackage{lmodern}
+
+\usepackage{xspace}
+
+\usepackage{graphicx}
+
+%%? \usepackage{textcomp}
+\usepackage[hyphens]{url}
+\usepackage{makeidx}
+\makeindex
+%%? \usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\usepackage{needspace}
+
+\setlength\partopsep{0.5ex}%schoenere Listen
+\usepackage[bottom]{footmisc}%fussnote ganz unten
+
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+
+\usepackage{multirow}   % Allows table elements to span several rows.
+\usepackage{booktabs}   % Improves the typesettings of tables.
+\usepackage{subcaption} % Allows the use of subfigures and enables their referencing.
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e} % Enables the writing of pseudo code.
+\usepackage[usenames,dvipsnames,table]{xcolor} % Allows the definition and use of colors. This package has to be included before tikz.
+\usepackage{nag}       % Issues warnings when best practices in writing LaTeX documents are violated.
+\usepackage{todonotes} % Provides tooltip-like todo notes.
+
+\usepackage{color}
+\usepackage[binary-units]{siunitx}
+
+%% Override default figure placement To be within the flow of the text rather
+%% than on it's own page.
+% \usepackage{float}
+% \makeatletter
+% \def\fps@figure{H}
+% \makeatother
+
+%% bei vielen Bildern o.ä sinnvoll: Seite muss nicht bis ganz unten gefüllt werden
+% \raggedbottom
+
+%\usepackage{footbib} %  footcite, needs other tooling
+%% for pandoc2 images
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+%% bessere Suche im PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Kopf und Fußzeilen -- links und rechts verschieden
+\newcommand{\kopfseitenummer}{{\bfseries \thepage}}
+\newcommand{\kopfkapl}{{\bfseries\leftmark}}
+\newcommand{\kopfkapr}{{\bfseries\rightmark}}
+\newcommand{\kopfbild}{\voffset7mm\includegraphics[width=25mm]{HTL3RLogoRGB}}
+\newcommand{\kopfHTL}{Höhere Technische Bundeslehranstalt Wien 3, \\Rennweg 	Abteilung für Informationstechnologie}
+
+\usepackage[automark,headsepline,footsepline,plainfootsepline]{scrlayer-scrpage}
+%\automark[chapter]{chapter}% Eventuell wenn doppelseitig
+\setkomafont{pageheadfoot}{\normalcolor\footnotesize\scshape}
+\setkomafont{pagenumber}{\normalfont\normalsize}
+\clearpairofpagestyles
+\ihead{\headmark}
+\ohead{\kopfbild}
+\ifoot{\kapitelautor}
+\ofoot{\pagemark}
+\ModifyLayer[addvoffset=-.6ex]{scrheadings.foot.above.line}% Linie verschieben
+\ModifyLayer[addvoffset=-.6ex]{plain.scrheadings.foot.above.line}% Linie verschieben
+\setlength{\headheight}{32pt}
+
+% alle Seiten mit Kopfzeile
+\renewcommand{\chapterpagestyle}{scrheadings}
+
+%% Kapitel - aufwändige Kapitelüberschriften
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+%\usepackage[Bjornstrup]{fncychap}
+% Alternative:
+%\usepackage{titlesec}
+
+% Verzeichnisse - aufwändiger
+%\usepackage{tocloft}
+
+
+%% Code Beispiele
+%% eine Variante
+\usepackage{listings}
+\renewcommand{\lstlistingname}{\inputencoding{utf8}Listing}
+%% andere Variante
+%\usepackage{minted}
+%\setminted{
+%  linenos,
+%  frame=lines,
+%  framesep=2mm,
+%  breaklines=true
+%}
+% Beispiel
+%\begin{listing}[H]
+%\begin{minted}{bash}
+%...
+%\end{minted}
+%\caption{Beschreibung}
+%\end{listing}
+%% dritte Variante
+% mit/für pandoc
+\input{text/00_pandoclisting.tex}
+
+%% should be last packages
+\usepackage{scrhack}
+
+%% glossar
+% kann man löschen falls kein Glossar gebraucht
+\usepackage[acronym, toc]{glossaries}
+\makeglossaries
+\input{text/00_Glossar.tex}
+
+% für Titelseite
+% https://www.reddit.com/r/LaTeX/comments/sfyusz/vertical_line_before_all_bullets_in_itemize/
+\usepackage{tcolorbox}
+\tcbuselibrary{xparse,skins,breakable}
+%% Farbe rgb: 255,51,0
+\definecolor{htl3red}{RGB}{255,51,0}
+\newtcolorbox{TitlePageBox}{%
+    breakable,
+    blanker,
+    left=1em,
+    borderline west={0.15cm}{3pt}{htl3red},
+}
+
+%% sollte das letzte Package sein
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={Diplomarbeit Titel},
+ pdfauthor={Wer auch immer},
+ pdfsubject={Diplomarbeit},
+ pdfkeywords={dies, das}}
+\urlstyle{same} % don't use monospace font for urls
+
+% \usepackage{cleveref}  % optional, noch bessere Querverweise
+
+% \usepackage{showkeys} %% DEBUG, Label anzeigen
+
+%% for pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% braucht man manchmal -- wenn er über passthrough mault -- TODO: warum?
+%\newcommand{\passthrough}[1]{\lstset{mathescape=false}\texttt{#1}\lstset{mathescape=true}}
+
+% Auch Fußnoten bündig ausrichten
+\deffootnote[]{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+%% setup
+\sloppy % weniger Meldungen
+\voffset7mm % etwas nach unten
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%% schöner: 10000 -- gar keine, 1000 als Mittelweg
+\clubpenalty = 1000 % Schusterjungen verhindern
+\widowpenalty = 1000 % Hurenkinder verhindern
+\displaywidowpenalty = 1000
+
+%% wir schreiben keine Umlaut mit "a "o
+\shorthandoff{"}
+%% mit kapitelautor kann man den Autor festlegen oder auf leer setzen - steht dann in der Fußzeile.
+%% bitte immer (gleich) nach der Überschrift setzen, nicht vorher -- sonst steht es bei Kapiteln eventuell eine Seite zu früh
+\newcommand{\kapitelautor}{}
+
+\input{text/00_latex_shortcuts.tex}
+%%%%%Anfang Titelseite
+%\pagenumbering{roman}
+
+%% Farbe rgb: 255,51,0 Strich + neuer Text
+
+\frontmatter % Switches to roman numbering
+\title{Diplomarbeit}
+
+\begin{titlepage}
+\begin{minipage}[b]{1\columnwidth}
+\parbox[b]{99mm}{
+\begin{TitlePageBox}
+\footnotesize% klein
+\textsf{% und ohne Rifen
+\textbf{\textsc{Höhere Technische Bundeslehranstalt} Wien 3, Rennweg}\\
+\\
+Höhere Abteilung für Mechatronik\\
+Höhere Abteilung für Informationstechnologie\\
+Fachschule für Informationstechnik}
+\end{TitlePageBox}
+}\hfill\parbox[b]{50mm}{\includegraphics[width=51mm]{HTL3RLogoRGB}}
+\mbox{}
+\end{minipage}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{\LARGE Diplomarbeit}\\
+\vspace{15mm}
+\textbf{\large{}\todo{TODO}eventuell KURZTITEL}\\
+\textbf{\large{}Ausgeschriebener Titel der Diplomarbeit}\\
+
+\vfill
+ausgeführt an der\\
+Höheren Abteilung für Informationstechnologie/??Ausbildungsschwerpunkt??\\
+der Höheren Technischen Lehranstalt Wien 3 Rennweg\\
+
+\vfill
+im Schuljahr 20??/20??\\
+
+
+\vspace{1cm}
+{
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{l c r}
+durch  & \hfill & unter Anleitung von \\
+\textbf{\large{}Mitarbeiter:in Eins (alphabetisch)} && Individualbetreuer:in Eins \\
+\textbf{\large{}Mitarbeiter:in Zwei} && Individualbetreuer:in Zwei \\
+\textbf{\large{}Mitarbeiter:in Drei} && Individualbetreuer:in Drei \\
+\textbf{\large{}Mitarbeiter:in Vier} && Individualbetreuer:in Vier \\
+\end{tabular}
+}
+
+\vfill
+
+Wien, \today
+\par\end{center}
+
+\end{titlepage}%%%%%%%%%%%%%%%%%%%%% Ende Titelseite %%%%%%%%%%%%%%%%%%%%%%
+% \renewcommand{\kapitelautor}{}  % bleibt leer (allg. Teil)
+\chapter*{Kurzfassung}
+\input{text/00_kurzfassung.tex}
+
+\chapter*{Abstract}
+\selectlanguage{english}
+\input{text/00_abstract.tex}
+\selectlanguage{ngerman}
+
+\chapter*{Ehrenwörtliche Erklärung}
+\input{text/00_erklaerung.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage{}
+\tableofcontents{}
+\cleardoublepage{}
+\listoftables
+\todo{kann entfallen falls (fast) leer}
+\cleardoublepage{}
+\listoffigures
+
+
+%hier geht es los mit dem Text - auf einer rechten Seite
+\cleardoublepage{}
+%\pagenumbering{arabic}
+\mainmatter
+
+\chapter{Ziele}
+% \renewcommand{\kapitelautor}{}  % bleibt eventuell leer (gemeinsame Arbeit)
+
+Das erste Kapitel stellt die Ziele der DA (inkl. individuelle Ziele
+aller Mitarbeiter) dar.\todo{viel Text schreiben}
+
+Mögliche Gliederung (nach \cite{leitfaden})
+
+\begin{itemize}
+\item  Einleitung
+\item   Zielsetzung und Aufgabenstellung des Gesamtprojekts
+\item   individuelle Zielsetzung und Aufgabenstellung mit Terminplan der einzelnen Teammitglieder
+\item   Grundlagen und Methoden (Ist-Situation, Lösungsansätze, konkrete Vorgehensweise)
+\item   Bearbeitung der Aufgabenstellung (technische Beschreibungen, Berechnungen)
+\item   Ergebnisse (Ergebnisdarstellung, kritische Gegenüberstellung mit der Zielsetzung
+ und der gewählten Vorgehensweise)
+\end{itemize}
+
+Mögliche Variante: Ziele laut Antrag, mit Querverweisen zu den einzelnen Kapiteln.
+
+\chapter{Formatierung}
+
+% wer hat diese Kapitel geschrieben oder leer
+\renewcommand{\kapitelautor}{Autor: Hans Huber}
+
+\input{text/demo_kap1.tex}
+
+
+\chapter{Planung}
+
+% Das komplette nächste Kapitel wird in der externen Datei diplomarbeit2.tex gespeichert.
+% Es wird an dieser Stelle im Dokument eingebaut.
+% Damit ist es möglich, mehrere Personen an diversen Teilen der Diplomarbeit arbeiten zu lassen.
+
+\input{markdown/diplomarbeit2.md.tex}
+
+\input{markdown/einstellungen.md.tex}
+
+\input{text/demo_fuelltext.tex}
+
+
+\appendix
+
+\chapter{Anhang 1\label{chap:Anhang-1}}
+
+was auch immer: technische Dokumentationen etc.
+
+Zusätzlich sollte es geben:
+\begin{itemize}
+\item Abkürzungsverzeichnis
+\item Quellenverzeichnis (hier: Bibtex im Stil plaindin)
+\item optional: Akronyme und Glossar
+\end{itemize}
+
+%% optional: Akronyme und Glossar
+% kann man löschen falls kein Glossar gebraucht
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, toctitle=Abkürzungsverzeichnis]
+\printglossary[type=main, title=Glossar, toctitle=Glossar]
+
+\printindex{}
+
+%% Flattersatz -- damit werden die langen URLs besser umgebrochen
+\raggedright %% eventuell auskommentieren
+%\bibliographystyle{plaindin}%Alternative unsrtdin - Nummern im Text aufsteigend
+\bibliographystyle{alphadin}
+\bibliography{diplom}
+
+
+\cleardoublepage
+\newcommand{\Messbox}[2]{%Parameters: #1=Breite, #2=Hoehe
+\setlength{\unitlength}{1.0mm}%
+\begin{picture}(#1,#2)%
+\linethickness{0.05mm}%
+\put(0,0){\dashbox{0.2}(#1,#2)%
+{\parbox{#1mm}{%
+\centering\footnotesize
+%{\bf MESSBOX}\\
+% if \textrm fails use \rm
+Breite $ = #1 {\textrm\ mm}$\\
+Höhe $ = #2 {\textrm\ mm}$
+}}}\end{picture}
+}
+\begin{center} {\Large --- Druckgröße kontrollieren! ---}
+\bigskip
+
+\Messbox{100}{50} % Angabe der Breite/Hoehe in mm
+\bigskip
+
+{\Large --- Diese Seite nach dem (Probe-)Druck entfernen! ---}
+\todo{Diese Seite nach dem  (Probe-)Druck entfernen!
+Nicht notwendig wenn Druck+Binden extern passiert.}
+\end{center}
+\end{document}

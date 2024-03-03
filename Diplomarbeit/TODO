@@ -1,0 +1,310 @@
+    - \usepackage[bottom]{footmisc}
+
+
+https://en.wikipedia.org/wiki/Wikipedia:Citing_Wikipedia
+vs.
+https://www.heise.de/ix/meldung/Wikipedia-korrekt-zitieren-789044.html
+vs.
+https://business-and-science.de/aktuelles/darf-man-in-wissenschaftlichen-arbeiten-wikipedia-zitieren/
+
+https://de.wikipedia.org/wiki/Wikipedia:Belege
+
+----------
+
+https://de.wikipedia.org/wiki/Wikipedia:Belege
+
+--------
+
+
+update fancyhdr + scrbook
+
+-----
+
+https://github.com/Digital-Media/HagenbergThesis
+
+hgblistings.sty
+
+
+https://superuser.com/questions/1082125/how-to-take-a-high-quality-screenshot-of-the-whole-page-in-firefox-using-gcli
+http://meyerweb.com/eric/thoughts/2015/10/22/firefoxs-screenshot-command/
+
+---------------
+
+TODO: Gloassar
+
+----------------------
+
+
+\usepackage{dirtree}
+
+----------------
+https://www.ctan.org/tex-archive/macros/latex/contrib/etdipa?lang=de
+
+---------
+https://github.com/philipmichel/vorlage-diplomarbeit-latex/blob/master/diplom.pdf
+----------
+
+listings:
+
+escapeinside={/+}{+/}, % makes "/+" and "+/" available for Latex escapes (labels etc.)
+-------
+
+%%==== Definitionen fuer die Diplomarbeit ============%%
+\dokumenttyp{DIPLOMARBEIT}
+\title{Musterdokument}
+\author{Simon Michael Laube \and NoName1 \and NoName2}
+\date{\today}
+\place{St. P\"olten}
+\schuljahr{2014/15}
+\professor{Prof. NoName \and Dr. Engineer}
+\dipacolor{ETred}
+
+
+-------
+
+Messbox zur Druckkontrolle: HagenbergThesis   rm -->  textrm
+
+-------
+
+\usepackage{setspace}
+\onehalfspacing    oder
+\setstretch{1.15}
+
+-----------
+
+http://www.diplomarbeiten-bbs.at/zitation-plagiate
+
+
+sollte harvard sein!
+informatik hat \bibliographystyle{alpha}
+vorlage: \bibliographystyle{plaindin} -- DIN 1505
+
+
+Varianten
+\usepackage{natbib}
+\usepackage[style=authoryear]{biblatex}
+
+/usr/share/doc/texlive-doc/latex/harvard/harvard.pdf
+
+
+-------
+
+intro von tuwien-vutinfth klauen
+
+
+alt: http://ieg.ifs.tuwien.ac.at/~aigner/download/tuwien.sty
+\newcommand{\copyrightseite}{%
+\newpage
+\setcounter{page}{2}
+\thispagestyle{plain}
+\rule{0mm}{1mm}
+\begin{center}
+%\vspace{75mm} \copyright\ Copyright\ \@author\ \@dajhr\\
+\vspace{75mm} \copyright\ Copyright\ \@dajhr\ \@author\\
+\vspace{3mm} Alle Rechte vorbehalten
+\end{center}
+}
+
+
+---------------
+
+Dokument/Einst/Sprache/Kodierung/unicode xetex utf8
+Übersetzen mit xelatex
+
+----
+
+Mehr Platz für die Zahlen im Abbildungsverzeichnis
+
+\usepackage[subfigure]{tocloft}
+\settowidth{\cftfignumwidth}{14.26\quad}
+\setlength{\cftfignumwidth}{12mm}
+
+-----------------------------------------------------------------------------------------------------------------
+
+von tuwien;
+
+\usepackage{fixltx2e}   % Provides fixes for several errors in LaTeX2e.
+\usepackage[T1]{fontenc}    % Determines font encoding of the output. Font packages have to be included before this line.
+\usepackage[utf8]{inputenc} % Determines encoding of the input. All input files have to use UTF8 encoding.
+
+\usepackage{hypdoc}
+
+
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e} % Enables the writing of pseudo code.
+\usepackage[usenames,dvipsnames,table]{xcolor} % Allows the definition and use of colors. This package has to be included before tikz.
+\usepackage{nag}       % Issues warnings when best practices in writing LaTeX documents are violated.
+\usepackage{hyperref}  % Enables cross linking in the electronic document version. This package has to be included second to last.
+\usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists fo acronyms. This package has to be included last.
+
+
+-----------------
+
+Adjusting Fonts
+Enabling the searching and copying
+of ligatures
+In certain cases, two or more consecutive characters are joined to a single glyph. This is called
+a ligature. LaTeX commonly does it for ff, fi , fl , ff i , ff l , and more, depending on the font. That's
+because font makers designed specif i c glyphs for certain character combinations.
+While it looks fi ne in print and on screen, there is a caveat—if you copy text from the produced
+PDF fi le into another document, such as to a text document or a Word fi le, the ligatures may
+appear broken.
+Another problem is searching for words containing ligatures in PDF fi les, which can simply fail
+as the ligature "ff" is not equivalent to the letter combination "ff".
+We will now fi x that.
+How to do it...
+We stick to the commonly used pdfLaTeX. There are several possible ways to fi x it. The fi rst
+way is this:
+1. Insert the glyphtounicode.tex fi le into your document's preamble:
+\input{glyphtounicode}
+2. In the next line, activate the required pdfTeX feature:
+\pdfgentounicode=1
+
+-------------
+
+We will use the menukeys package and try out its main commands. Follow these steps:
+1. Start a short document and load the menukeys package in it:
+\documentclass[parskip=full]{scrartcl}
+\usepackage{menukeys}
+\begin{document}
+\section*{Running \TeX works}
+2. In the body text, use the \menu command for menu entries, the \keys command for
+keyboard combinations, and the \directory command for a path, as follows:
+In the main menu, click \menu{Typeset > pdfLaTeX}
+for choosing the \TeX\ compiler. Then press \keys{\cmd + T}
+for typesetting. Click \menu{Window > Show > Fonts} for seeing
+the fonts used by the document.
+Press \keys{\shift + \cmd + F} for full screen.
+The program is installed in
+\directory{/Applications/TeX/TeXworks.app}.
+\end{document}
+
+-------------
+
+have all contents aligned to the left, specif i cally the sectioning numbers, call the following
+command:
+\usepackage[tocflat]{tocstyle}
+
+\usepackage[tocfullflat]{tocstyle}
+
+-----
+2. Load the pdfcomment package in the preamble:
+\usepackage{pdfcomment}
+
+-----
+
+2. Load the pdfpages package:
+\usepackage{pdfpages}
+3. Begin the document:
+\begin{document}
+4. Include the fi rst PDF fi le by using the command \includepdf. It takes the page
+range as an option. Use a dash (-) for the whole page range:
+\includepdf[pages=-]{flyer}
+5. Include the second PDF fi le:
+\includepdf[pages=-]{form}
+
+---
+Cookbook CH 9
+
+2. Load the smartdiagram package:
+\usepackage{smartdiagram}
+----
+
+3. Load these three algorithm packages:
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+---
+
+Load the tikz package:
+\usepackage{tikz}
+3. Load the circuits.ee.IEC library, which provides IEC norm symbols:
+\usetikzlibrary{circuits.ee.IEC}
+
+http://texample.net/tikz/examples/area/computer-science/
+
+-------
+
+???
+\bibliographystyle{agsm}
+agsm style. Other similar styles are apalike and lsalike
+
+oder
+
+\usepackage{harvard}
+
+----------
+
+Pandoc Beispiel für link
+
+* auf Kapitel
+* auf Bild
+
+-------
+
+longtable + linksbündig
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+%\begin{longtable}{|p{3cm}|p{6.5cm}|p{4cm}|}
+\begin{longtable}{|p{3cm}|P{6.5cm}|P{4cm}|}
+
+oder
+
+\begin{longtable}[l]{|p{3cm}
+
+------------
+
+
+%% listing
+\usepackage{minted}
+\setminted{
+  linenos,
+  frame=lines,
+  framesep=2mm,
+  breaklines=true
+}
+
+-------------------
+
+https://gist.github.com/seanlano/086266e5bfdc3f69ffbdc0f22baad97c
+
+paragraph:
+
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+
+
+pictures:
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+---------------------
+
+
+
+https://pandoc.org/MANUAL.html#syntax-highlighting
+
+If you are not satisfied with the built-in highlighting, or you want to highlight a language that isn’t supported,
+you can use the --syntax-definition option to load a KDE-style XML syntax definition file.
+Before writing your own, have a look at KDE’s repository of syntax definitions.
+
+führt zu:
+https://github.com/KDE/syntax-highlighting/blob/master/data/syntax/cisco.xml
+
+--> Beim pandoc-Aufruf ergänzen (bei den Scripts: PANDOCOPT):
+   --syntax-definition cisco.xml
+
+
+
+
+
+
+
+
+

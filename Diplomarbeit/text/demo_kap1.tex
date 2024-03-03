@@ -1,0 +1,454 @@
+
+\section{Vorlagen}
+
+In diesen Kapitel gibt es einige Muster für Dinge die oft vorkommen.
+
+\subsection{Abweichungen}
+
+Die in diesem Dokument getroffenen Einstellungen bzw. das resultierende PDF ist die
+Referenz für die Diplomarbeiten der Abteilung IT.
+
+%Abweichungen sind nur in begründeten Ausnahmefällen und nach Rücksprache mit dem Betreuer zulässig.
+
+\subsection{Formatvorlagen}
+
+Alle Formatierungen sollten mit Formatvorlagen vorgenommen werden.
+Spätestens bei der Konvertierung in ein Ebook rächen sich diese \quotedblbase Sünden``:
+Ebooks sind HTML Dokumente mit einer Formatierung mittels CSS.
+
+Auch bei der Umwandlung in interaktive PDFs ist eine konsequente Formatierung
+wichtig.
+
+
+\subsection{Schriften und Absätze}
+
+Hier findet man eine Beschreibung des Layouts -- Details folgen weiter
+unten.
+\begin{description}
+\item [{Schrift:}] dieses \LaTeX{}-Dokument verwendet die Standardschriften.
+Die Schriftgröße soll 12\,pt betragen.
+\item [{Absatz:}] entweder verwendet man wie in \LaTeX{} einen etwas größeren
+Seitenrand oder einen größeren Zeilenabstand. Beides sorgt für bessere
+Lesbarkeit. Zwischen den Abätzen ist ein Abstand. Alternative: die
+erste Zeile eines Absatzes wird etwas eingerückt (nicht die erste
+Zeile nach einer Überschrift, nach einem Bild etc.) und bzw. oder
+es gibt einen Abstand zwischen den Absätzen. Am Ende und Anfang einer
+Seite sollten mindestens zwei Zeilen eines Absatzes sein (keine Schusterjungen\footnote{siehe \url{http://www.typolexikon.de/s/schusterjunge.html}}
+und Hurenkinder\footnote{siehe \url{http://www.typolexikon.de/h/hurenkind.html}}).
+\item [{Blocksatz:}] Alle Texte werden im Blocksatz gesetzt. Die Silbentrennung
+ist dann obligatorisch.
+\item [{Kapitelüberschriften:}] Überschriften erster Ordnung sollten auf
+rechten Seiten beginnen. Über jeder Überschrift sollte ein Abstand
+sein. Alle Überschriften müssen mit de nächsten Absatz \quotedblbase zusammengehalten``
+werden -- keine einsamen Überschriften am Ende einer Seite.
+\item [{Inhaltsverzeichnis:}] das Inhaltsverzeichnis sollte möglichst kompakt
+sein. Als Gliederung dienen fette Hauptüberschriften und etwas Abstand
+über den Zeilen.
+\item [{Seitenformat:}] der Ausdruck erfolgt zweiseitig, ein entsprechender
+Bundsteg ist zu berücksichtigen\footnote{Die Einstellung der Seitenränder ist keinesfalls beliebig. Sie sollte
+bewährten Regeln folgen, {[}\ldots{}{]}. Die häufige Zielvorgabe
+\quotedblbase Den Platz auf dem Papier möglichst gut ausnutzen``
+ist keine typografische sondern eine extrem laienhafte Regel. aus
+\citep{layout}}. Nach Rücksprache mit dem Betreuer kann auch eine einseitige Variante
+gewählt werden. Bei Bedarf könne auch einzelne Seiten im Querformat
+gesetzt werden.
+\item [{Kopfzeile:}] die Kopfzeile sollte dieser Vorlage entsprechen. Falls,
+nach Rücksprache mit dem Betreuer, der Ausdruck nur in Schwarz-weiß
+erfolgt, kann das Logo entfallen.
+\item [{Fußzeile:}] hier ist Platz für den Autor des Kapitels und die Seitennummer.
+Wie bei technischen Publikationen üblich ist die Einleitung und die
+Verzeichnisse mit römischen Seitennummern versehen. Das eigentliche
+Dokument wird mit arabischen Ziffern nummeriert. Beide Nummerierungen
+sind unabhängig voneinander und beginnen jeweils bei 1.
+\item [{Autor:}] Jedes Kapitel muss auch einem Autor haben. Das sieht man
+in der Fußzeile oder als Textbox in der Nähe der Überschrift. Alternativ
+kann es im Anhang eine Liste geben. Das ist besonders wichtig wenn
+es viele Beilagen, z.B. Handbücher ohne direkte Angabe des Autors,
+gibt.
+\item [{PDF:}] Die PDF Metainformation sollten richtig sein (Autor etc.)
+-- siehe Datei/Eigenschaften. Links auf Webseiten, Verweise innerhalb
+des Dokuments, das Inhaltsverzeichnis, die Fußnoten usw. sollten \quotedblbase klickbar``
+sein.
+\end{description}
+
+\subsection{Bilder\label{sub:Bilder}}
+
+Das Bild als Gleitobjekt ist genau hier, oder oben auf der Seite,
+oder unten, aber immer zentriert mit Nummer und Beschreibung -- wenn
+es sinnvoll ist auch mit Querverweis (siehe Abbildung \ref{Bild11}).
+Durch Gleitobjekte, d.~h. Bilder oben oder unten auf der Seite statt
+\quotedblbase genau hier``, werden halbleere Seiten durch besonders
+große Bilder vermieden.
+
+Wichtig: alle Bilder oder andere Medien z.~B. Screenshots, Audio
+oder Video für EBooks und interaktive PDFs sollten mit einen entsprechenden
+Quellennachweis versehen sein.
+
+\begin{figure}[tbh]
+\begin{centering}
+\includegraphics[width=5cm]{HTL3RLogoRGB}
+\par\end{centering}
+
+\caption{Ein Bild}
+\label{Bild11}
+\end{figure}
+
+Eingefügte Screenshots sind im Ausdruck meistens unscharf. Ursache
+\begin{itemize}
+\item zu niedrige Auflösung
+\item als JPEG mit verlustbehafteter Komprimierung gespeichert
+\end{itemize}
+Abhilfe: z.B. \url{https://meyerweb.com/eric/thoughts/2018/08/24/firefoxs-screenshot-command-2018/}
+%% shift-F2 screenshot --dpr 4
+
+\subsection{Tabellen}
+
+In der folgenden Tabelle sieht man: es gibt immer eine Nummer und
+eine Beschreibung. Besonders längere Tabellen sollten eventuell als
+Gleitobjekt am Ende oder Anfang einer Seite positioniert werden. Geht
+die Tabelle über mehrere Seiten so ist die Überschrift zu wiederholen.
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{|c|c|c|}
+\hline
+Überschrift & Wert & noch einer\tabularnewline
+\hline
+\hline
+1 & abc & Hallo\tabularnewline
+\hline
+2 & def & Latex\tabularnewline
+\hline
+\end{tabular}
+\par\end{centering}
+
+\caption{So eine tolle Tabelle}
+\end{table}
+
+
+
+\subsection{Formel}
+
+Etwas Text als Überleitung zu einer Formel:
+
+\[
+f(x)=\left\{ \begin{array}{cc}
+\log_{8}x & x>0\\
+0 & x=0\\
+\sum_{i=1}^{5}\alpha_{i}+\sqrt{-\frac{1}{x}} & x<0
+\end{array}\right.
+\]
+
+
+Wenn man sehr viele Formeln hat sollte man diese auch nummerieren.
+Besonders bei Verweisen ist das sehr sinnvoll.
+
+Hinweis: auch für Werte wie \SI{100}{\mebi\byte} gibt es ein eigenes Paket -- siunitx.
+
+
+\subsection{Sourcecode}
+
+
+Wichtig: keine endlos langen Listings ohne Erklärung. Besser sind kurze, im Text erläuterte Ausschnitte
+des Codes, ohne Code-Kommentare. Man kann \zB auch die Fehlerbehandlung entfernen und stattdessen auf
+den Quelltext verweisen.
+
+Sourcecode sollte in einer Schrift mit fixer Breite sein. Der Zeilenabstand sollte möglichst gering sein.
+Falls man Verweise braucht sollte man die Listings auch nummerieren.
+
+% das kann auch ganz oben stehen
+% das braucht man nur einmal
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=2, numbersep=5pt, showspaces=true, frame=single}
+% einmal oder immer was anderes
+\lstset{language=C}
+
+% hier könnte man auch aus Dateien lesen
+\begin{lstlisting}
+#include <stdio.h>
+
+int main()
+{
+  printf("Hello world\n");
+}
+\end{lstlisting}
+
+Die genaue Formatierung ist freigestellt: Einstellungen wie bunt bzw.
+fett, Markierung von Leerzeichen und Zeilennummerierung kann an den
+Bedarf der Diplomarbeit angepasst werden.
+
+Beispiel Java mit anderen Einstellungen -- nur als Beispiel, in der
+Diplomarbeit sollte man sich an eine einheitliches Format halten.
+Bei längeren Listings muss man eventuell mit Umbrüchen rechnen, oder
+man verwendet einen Rahmen der frei angeordnet werden kann (\siehe{sub:Bilder}).
+
+% Einstellungen für die fogenden Listings
+% entweder mit \begin{listing} oder in Lyx als Programmlisting
+\lstset{numbers=right, numberstyle=\tiny, stepnumber=2, numbersep=5pt, showspaces=false, frame=single}
+\lstset{language=Java}
+
+Achtung \LaTeX{}-User: Listing kann keine Umlaute, aber unter \citep{listingtipp}
+gibt es eine Lösung.
+
+\begin{lstlisting}[caption={Java Beispiel},captionpos=b]
+import java.awt.*;
+import java.awt.event.*;
+
+public class AL extends Frame
+                 implements WindowListener, ActionListener {
+  TextField text = new TextField(20);
+  Button b;
+  private int numClicks = 0;
+
+  public static void main(String[] args) {
+    AL myWindow = new AL("My first window");
+    myWindow.setSize(350,100);
+    myWindow.setVisible(true);
+  }
+}
+\end{lstlisting}
+
+\needspace{2cm}
+Hinweise:
+\begin{itemize}
+\item Pandoc erzeugt automatisch bunte Listings
+\item und es gibt die Pakete listings und minted
+\item aber man sollte die drei Varianten nicht mischen!
+\end{itemize}
+
+
+\subsection{Fachbegriffe}
+
+Fachbegriffe in einer Fremdsprache oder Kommandos sollten einheitlich
+gekennzeichnet werden. Bei Latex verwendet man dazu \quotedblbase logisches
+Markup``, bei Word oder Open/Libre-office wird all diesen Wörtern
+wird eine Vorlage zugewiesen, das Aussehen wird dann an einer Stelle
+zentral festgelegt.
+
+Als Beispiel soll \emph{Text to Speech}\index{Text to Speech: Umwandlung von Texten in Sprache}
+dienen. Solche Wörter sollte natürlich in ein Glossar aufgenommen
+werden.
+
+Oder der Befehl \strong{dir} für die Kommandozeile. Die Angabe von
+Dateinamen sollte auch einheitlich sein: entweder \emph{/etc/passwd}
+oder \strong{C:\textbackslash{}system32}.
+
+
+\subsection{Zitieren}
+
+Die Quellenangabe kann in Form eines Vollbelegs in der Fußnote\footnote{aus Zitat --- Wikipedia, Die freie Enzyklopädie, \url{http://de.wikipedia.org/w/index.php?title=Zitat},
+Abgerufen 2014-09-14}(bei technischen Dokumenten eher unüblich) oder als Kurzbeleg am Schluss
+der gesamten Arbeit aufgeführt werden. Beim Kurzbeleg sind dabei verschiedene
+Formen üblich. Der platzsparendste, aber am wenigsten aussagekräftige
+Zitierstil ist die fortlaufende Nummerierung aller zitierten Quellen
+{[}123{]}.
+
+
+Insbesondere in der Informatik üblich ist eine Kombination der ersten drei Buchstaben
+des Autorennamens und, soweit vorhanden, der letzten beiden Ziffern des Erscheinungsjahres
+(z. B. „The04“ für Theisen 2004). Diese Variante wird auch in dieser Vorlage verwendet.
+Siehe \cite{zitate}.
+
+Alternative: \verb+\footcite{zitate}+, braucht andere Aufrufe zum Bauen.
+
+Wohl am weitesten verbreitet im nicht technischen Bereich ist
+der vollständige Verfassernamen mit Erscheinungsjahr, wobei mehrere
+Quellen desselben Autors innerhalb eines Jahres durch fortlaufende
+Buchstaben kenntlich gemacht werden (z. B. „Theisen 2004c“). Weniger
+üblich, aber am aussagekräftigsten ist die Quellenangabe unter Hinzufügung
+eines Schlagwortes, das den mit der Materie vertrauten Leser zumeist
+bereits die zitierte Quelle erkennen lässt, z. B. in der Form „Theisen
+(Wissenschaftliches Arbeiten, 2004)“.
+
+Obwohl mehrere Zitierstile bzw. Zitiertechniken zur Verfügung stehen,
+werden in einem Dokument üblicherweise nicht mehrere verwendet; ein
+ausgewählter Zitierstil wird im gesamten Dokument konsequent beibehalten.
+Ein gute Übersicht bietet \citep{wiki:zitat}.
+
+Auch unter \url{http://www.diplomarbeiten-bbs.at/zitation-plagiate}
+gibt es gute Informationen zum Thema.
+
+
+\subsubsection{Quellenverzeichnis}
+
+Unter \LaTeX{} kann das Programm Bib\TeX{} zur Erstellung von Literaturangaben
+verwendet werden.
+\begin{itemize}
+\item Links auf Wikipedia sollten vermieden werden.\nopagebreak
+\item Jeder Link sollte mit einem Abfragedatum versehen sein.\nopagebreak
+\item Das Literaturverzeichnis kommt an das Ende des Dokuments.\nopagebreak
+\end{itemize}
+Viele Details dazu findet man bei \citep{wiki:zitat}.
+
+
+\subsubsection{Rechtliches zum Zitieren}
+
+Achtung: nicht gekennzeichnete Zitate (Plagiate) führen zu einer negativen
+Beurteilung der Diplomarbeit. Nach \citep{wiki:quelle}:
+
+§ 57 des österreichischen Urheberrechtsgesetzes\citep{ris57} enthält
+detaillierte Vorschriften über die Quellenangabe, unter anderem: Werden
+Stellen oder Teile von Sprachwerken nach §\,46 vervielfältigt, so
+sind sie in der Quellenangabe so genau zu bezeichnen, dass sie in
+dem benutzten Werke leicht aufgefunden werden können. In den Erläuterungen
+(ErlRV) heißt es: Bei Entlehnungen aus umfangreichen Werken muss also
+in der Quellenangabe auch die Seite, der Abschnitt, das Kapitel oder
+der Akt, wo sich die entlehnte Stelle befindet, angeführt werden (Dillenz,
+Materialien zum österreichischen Urheberrecht, 134, zitiert nach \citep{dittrich},
+S. 621)
+
+2002 nahm der österreichische OGH zur Frage der Quellenangabe in der
+Entscheidung Riven Rock Stellung: Nach § 57 Abs 4 UrhG bedarf die
+Unterlassung einer Quellenangabe der Rechtfertigung durch die im redlichen
+Verkehr geltenden Gewohnheiten und Gebräuche. Bei Auslegung dieser
+Bestimmung ist eine Abwägung der Interessen des Urhebers mit jenen
+des zur freien Werknutzung Berechtigten nach dem Verständnis loyaler,
+den Belangen des Urhebers mit Verständnis gegenübertretenden, billig
+und gerecht denkenden Benutzern (Vinck aaO § 63 Rz 2) geboten und
+danach zu beurteilen, ob dem freien Werknutzer neben der Nennung des
+Autors/Verlags auch die Nennung des Namens des Übersetzers von in
+einer Rundfunksendung verlesenen Roman-Zitaten zumutbar ist.
+
+
+\section{Inhalt}
+
+
+\subsection{Aussagen}
+
+Alles im Buch sollte man in folgende drei Typen einteilen:
+\begin{enumerate}
+\item Stand der Technik -- Quelle notwendig
+\item selbst gemacht -- Verweis wie und wo
+\item Meinung -- als eigene Meinung bzw. Einschätzung kennzeichnen
+\end{enumerate}
+
+\subsection{Bad Practice}
+
+Was man vermeiden sollte -- diese Dinge führen zur Mehrarbeit und
+verursachen zusätzlichen Stress in der hektischen Zeit knapp vor dem
+Abgabetermin.
+
+
+\paragraph{Stil}
+\begin{itemize}
+\item Extrem lange, geschachtelte Sätze und/oder endlose Textpassagen ohne
+Gliederung durch Absätze.\nopagebreak
+
+\begin{itemize}
+\item Vielleicht bzw. sinnvollerweise lassen Sie den Text auch von einer
+\quotedblbase außenstehenden Person`` lesen.
+\end{itemize}
+\item Aufzählungen im Text statt Listen. Wie man hier sieht dürfen bei Listen
+auch mehrere Sätze stehen.
+\item \uline{Unterstreichen} ist ein Relikt aus \quotedblbase Schreibmaschinen-Zeiten``.
+\item Eine Diplomarbeit ist keine Erzählung. Natürlich kann man als \quotedblbase ich``
+oder \quotedblbase wir`` auf \quotedblbase unsere Probleme`` eingehen,
+aber im Allgemeinen ist ein formaler, beschreibender und technischer
+Stil einzuhalten.
+\item Eine Diplomarbeit ist auch keine Email oder SMS: Schreiben Sie ganze
+Sätze ohne kryptische Abkürzungen und Smileys.
+\item Ein Mindestmaß an Interpunktion wird vorausgesetzt. Eventuell lassen
+Sie den Text durch eine kundige Person Ihres Vertrauens korrigieren.
+\item Es gibt viele verschiedene Striche, und alle sehen verschieden aus:
+Gedankenstriche, Bindestriche und Minus kommen in einer Diplomarbeit
+häufig vor.
+\item Weitere Wörter die Ihren Betreuer verzweifeln lassen -- natürlich
+nur bei übermäßiger Verwendung
+
+\begin{itemize}
+\item Welcher/Welches, Hierbei
+\end{itemize}
+\end{itemize}
+
+\paragraph{Technik}
+\begin{itemize}
+\item (viele) händische Formatierungen statt Formatvorlagen.
+\item zusätzliche manuelle Seitenumbrüche oder Leerzeilen für ein \quotedblbase schöneres``
+Layout. Es gibt bei den Absatzformatierungen tolle Möglichkeiten für
+Abstände vor und nach einem Absatz bzw. zum Beeinflussen des Textflusses.
+Mittels \zB \code{\textbackslash{}needspace\{2cm\}} kann man für
+\textit{genügend} Platz sorgen.
+\item Arbeiten Sie mit dem Programm statt gegen das Programm:
+
+\begin{itemize}
+\item Verweise als fixer Text. Nutzen Sie die Möglichkeiten der Textverarbeitung.
+\item Dinge die \quotedblbase kompliziert`` einzugeben sind, sind meist
+falsch -- richtige Lösungen sind in allen Programmen auch \quotedblbase leicht``
+zu erreichen\footnote{Oder Sie verwenden ein für Ihre Zwecke schlecht geeignetes Programm.}.
+\end{itemize}
+\item Kontrollieren Sie beim fertigen PDF die Angaben unter Datei / Eigenschaften
+-- dort sollten sinnvolle Dinge stehen. Bei Latex wird dazu das Paket
+\texttt{\code{\texttt{hyperref}}} verwendet.
+\end{itemize}
+
+\section{Details zu Formatierung}
+
+
+\subsection{Schriftarten}
+
+Die Word- und Libreoffice-vorlage verwenden etwas andere Schriften
+als das Latex Dokument.
+
+
+\section{Beispiele}
+
+
+\subsection{Zitieren mit Latex}
+
+Am Beispiel der URL \url{http://de.wikibooks.org/wiki/LaTeX-Kompendium}
+und des Buches \quotedblbase \LaTeX{}: Einführung``.
+
+Man braucht eine \texttt{.bib} Datei mit den notwendigen Informationen:
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+@book{kopka1991latex,
+  title={LaTeX: Einfuehrung},
+  author={Kopka, Helmut and Rahtz, Sebastian},
+  volume={2},
+  year={1991},
+  publisher={Addison-Wesley}
+}
+
+@online{latexKomp,
+  author = {},
+  title ={LaTeX-Kompendium - Wikibooks, Sammlung freier Lehr-,
+Sach- und Fachbuecher},
+  url = {http://de.wikibooks.org/wiki/LaTeX-Kompendium},
+  lastchecked = {2014.09.14},
+  key={LaTeX-Kompendium}
+}
+\end{lstlisting}
+
+
+Diese Einträge werden dann im Text verwendet: \texttt{\textbackslash{}cite\{kopka1991latex\}
+}und das Ergebnis sieht dann so \citep{kopka1991latex} und so \citep{latexKomp}
+aus. Gleichzeitig erscheinen diese Einträge auch im Literaturverzeichnis
+am Ende des Dokuments.
+
+
+\subsection{Direkte Formatierungen -- sollte man vermeiden}
+
+Der Autor kann natürlich auch eingreifen und zum Beispiel\\
+Zeilenumbrüche erzwingen und \\
+\\
+Leerzeilen -- aber das sollte man nicht machen. \newpage{}
+
+Ein Seitenumbruch kostet mich auch nicht mehr als einen müden Lacher,
+ist aber noch seltener wirklich sinnvoll.
+Besser ist \texttt{\textbackslash{}needspace\{5cm\}} -- neue Seite, aber nur wenn weniger als 5~cm Platz übrig sind.
+
+Schriftgrößen ändern:
+\begin{itemize}
+\item {\tiny{}tiny}
+\item {\scriptsize{}scriptsize}
+\item {\footnotesize{}footnotesize}
+\item {\small{}small}
+\item normalsize
+\item {\large{}large}
+\item {\Large{}Large}
+\item {\LARGE{}LARGE}
+\item {\huge{}huge}
+\item {\Huge{}Huge}
+\end{itemize}
+
+\uline{ein Strich unten drunter} oder \uuline{sogar zwei}.
+

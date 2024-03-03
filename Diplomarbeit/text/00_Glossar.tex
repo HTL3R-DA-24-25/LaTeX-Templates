@@ -1,0 +1,281 @@
+% ac
+%% https://de.overleaf.com/learn/latex/Glossaries
+
+%% Makros zur schnelle Definition von Acronymen und Glossareinrägen
+
+%% Copyright Lorenz Stechauner, 2019
+
+%%%%%%%%%%%%%%%%
+
+    % 1 -> key
+    % 2 -> name <---- which is also the short
+    % 3 -> pluralname
+    % 4 -> long
+    % 5 -> longplural
+    % 6 -> description
+
+\newcommand*{\newacr}[5]{
+    \newglossaryentry{#1}{
+        type=\acronymtype,
+        name={#2},
+        short={#2},
+        shortplural={#3},
+        plural={#3},
+        long={#4},
+        longplural={#5},
+        description={#4},
+        first={#4 (#2)},
+        firstplural={#5 (#3)}
+   }
+}
+\newcommand*{\ac}[1]{\gls{#1}}
+\newcommand*{\acs}[1]{\acrshort{#1}}
+\newcommand*{\acl}[1]{\acrlong{#1}}
+\newcommand*{\acf}[1]{\acrfull{#1}}
+\newcommand*{\acp}[1]{\glsplural{#1}}
+\newcommand*{\acsp}[1]{\acrshortpl{#1}}
+\newcommand*{\aclp}[1]{\acrlongpl{#1}}
+\newcommand*{\acfp}[1]{\acrfullpl{#1}}
+\newcommand*{\Ac}[1]{\Gls{#1}}
+\newcommand*{\Acs}[1]{\Acrshort{#1}}
+\newcommand*{\Acl}[1]{\Acrlong{#1}}
+\newcommand*{\Acf}[1]{\Acrfull{#1}}
+\newcommand*{\Acp}[1]{\Glsplural{#1}}
+\newcommand*{\Acsp}[1]{\Acrshortpl{#1}}
+\newcommand*{\Aclp}[1]{\Acrlongpl{#1}}
+\newcommand*{\Acfp}[1]{Acrfullpl{#1}}
+
+\newcommand*{\newacrgls}[6]{
+    \longnewglossaryentry{{#1}_gls}{name={#4}, see=[Abkürzungsverzeichnis:]{#1}}{#6}
+    \newglossaryentry{#1}{
+        type=\acronymtype,
+        name={#2},
+        short={#2},
+        plural={#3},
+        long={#4},
+        longplural={#5},
+        description={#4},
+        first={#4 (#2)},
+        firstplural={#5 (#3)},
+        see=[Glossar:]{{#1}_gls}
+    }
+}
+\newcommand*{\glac}[1]{\gls{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glacs}[1]{\acrshort{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glacl}[1]{\acrlong{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glacf}[1]{\acrfull{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glacp}[1]{\glsplural{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glacsp}[1]{\acrshortpl{#1}\glsadd{{#1}_gls}}
+\newcommand*{\glaclp}[1]{\acrlongpl{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glac}[1]{\Gls{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glacs}[1]{\Acrshort{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glacl}[1]{\Acrlong{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glacf}[1]{\Acrfull{#1}\glsadd{#1}_gls}
+\newcommand*{\Glacp}[1]{\Glsplural{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glacsp}[1]{\Acrshortpl{#1}\glsadd{{#1}_gls}}
+\newcommand*{\Glaclp}[1]{\Acrlongpl{#1}\glsadd{{#1}_gls}}
+
+\newcommand*{\newgls}[4]{
+    \longnewglossaryentry{#1}{name={#2}, plural={#3}}{#4}
+}
+\newcommand*{\gl}[1]{\gls{#1}}
+\newcommand*{\glp}[1]{\glsplural{#1}}
+
+%%%%%%%%%%%%%%%%
+
+
+\newcommand*{\incabbpng}[4]{
+    % Label, Beschreibung, Pfad, Quelle, Genaue Quelle
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth,bb={#4}]{#3}
+    \caption{#2}
+    \label{#1}
+    \end{figure}
+}
+
+
+\newcommand*{\incabbpngq}[6]{
+    % Label, Beschreibung, Pfad, Quelle, Genaue Quelle
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth,bb={#6}]{#3}
+    \caption{#2 \cite{#4}}
+    \label{#1}
+    \end{figure}
+}
+
+\newcommand*{\incabbq}[5]{
+    % Label, Beschreibung, Pfad, Quelle, Genaue Quelle
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{#3}
+    \caption{#2 \cite{#4}}
+    \label{#1}
+    \end{figure}
+}
+
+\newcommand*{\incabbsvgq}[5]{
+    % Label, Beschreibung, Pfad, Quelle, Genaue Quelle
+    \begin{figure}
+    \centering
+    \includesvg[width=0.75\textwidth]{#3}
+    \caption{#2 \cite{#4}}
+    \label{#1}
+    \end{figure}
+}
+
+\newcommand*{\incabb}[3]{
+    % Label, Beschreibung, Pfad
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{#3}
+    \caption{#2}
+    \label{#1}
+    \end{figure}
+}
+
+\newcommand*{\incabbh}[3]{
+    % Label, Beschreibung, Pfad
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{#3}
+    \caption{#2}
+    \label{#1}
+    \end{figure}
+}
+
+\newcommand*{\incabbsvg}[3]{
+    % Label, Beschreibung, Pfad
+    \begin{figure}
+    \centering
+    \includesvg[width=0.75\textwidth]{#3}
+    \caption{#2}
+    \label{#1}
+    \end{figure}
+}
+
+
+%%%%%%%%%%%%%%%%
+
+%% in diplomarbeit.tex:
+%%\usepackage[acronym, toc]{glossaries}
+%%\makeglossaries
+%%\input{text/00_Glossar.tex}
+
+
+
+
+\newacr{ACL}{ACL}{ACLs}{Access Control List}{Access Control Lists}
+\newacr{AD}{AD}{ADs}{Active Directory}{Active Directorys}
+\newacr{API}{API}{APIs}{Application Programming Interface}{Application Programming Interfaces}
+\newacr{ATA}{ATA}{ATAs}{Advanced Threat Analytics}{Advanced Threat Analytics}
+\newacr{DoS}{DoS}{DoS'}{Denial of Service}{Denial of Services}
+\newacr{DPI}{DPI}{DPIs}{Deep Packet Inspection}{Deep Packet Inspections}
+\newacr{DB}{DB}{DBs}{Datenbank}{Datenbanken}
+\newacr{DBMS}{DBMS}{DBMSs}{Datenbankmanagementsystem}{Datenbankmanagementsysteme}
+\newacr{DNS}{DNS}{DNS}{Domain Name System}{Domain Name Systeme}
+\newacr{DSGVO}{DSGVO}{DSGVOs}{Datenschutz-Grundverordnung}{Datenschutz-Grundverordnungen}
+\newacr{DSG}{DSG}{DSGs}{Datenschutzgesetz}{Datenschutzgesetze}
+\newacr{EDV}{EDV}{EDVs}{Elektronische Datenverarbeitung}{Elektronische Datenverarbeitungen}
+\newacr{FQDN}{FQDN}{FQDNs}{Fully-Qualified Domain Name}{Fully-Qualified Domain Names}
+\newacr{GPO}{GPO}{GPOs}{Group Policy Object}{Group Policy Objects}
+\newacr{HTL}{HTL}{HTLs}{Höhere Technische Lehranstalt}{Höhere Technische Lehranstalten}
+\newacr{HTTP}{HTTP}{HTTP}{Hypertext Transfer Protocol}{Hypertext Transfer Protocol}
+\newacr{HTTPS}{HTTPS}{HTTPS}{Hypertext Transfer Protocol Secure}{Hypertext Transfer Protocol Secure}
+\newacr{IP}{IP}{IPs}{Internet Protocol}{Internet Protocols}
+\newacr{ISP}{ISP}{ISPs}{Internet Service Provider}{Internet Service Providers}
+\newacr{ID}{ID}{IDs}{Identifikator}{Identifikatoren}
+\newacr{IT}{IT}{ITs}{Informationstechnologie}{Informationstechnologien}
+\newacr{JSON}{JSON}{JSONs}{JavaScript Object Notation}{JavaScript Object Notations}
+\newacr{KI}{KI}{KIs}{Künstliche Intelligenz}{Künstliche Intelligenzen}
+\newacr{KMU}{KMU}{KMUs}{kleines und mittleres Unternehmen}{kleine und mittlere Unternehmen}
+\newacr{LAN}{LAN}{LANs}{Local Area Network}{Local Area Networks}
+\newacr{MAC}{MAC}{MACs}{Media Access Control}{Media Access Controls}
+\newacr{NAT}{NAT}{NATs}{Network Address Translation}{Network Address Translations}
+\newacr{NGFW}{NGFW}{NGFWs}{Next Generation Firewall}{Next Generation Firewalls}
+\newacr{NoSQL}{NoSQL}{NoSQLs}{Not only \acs{SQL}}{Not only \acsp{SQL}}
+\newacr{NPS}{NPS}{NPSs}{Network Policy Server}{Network Policy Server}
+\newacr{NTP}{NTP}{NTPs}{Network Time Protocol}{Network Time Protcols}
+\newacr{OID}{OID}{OIDs}{Object Identifier}{Object Identifier}
+\newacr{OSI}{OSI}{OSIs}{Open Systems Interconnection}{Open Systems Interconnections}
+\newacr{OUI}{OUI}{OUIs}{Organizationally Unique Identifier}{Organizationally Unique Identifier}
+\newacr{PDU}{PDU}{PDUs}{Protocol Data Unit}{Protocol Data Units}
+\newacr{AQL}{AQL}{AQLs}{\textit{Argos-Query-Language}}{\textit{Argos-Query-Languages}}
+\newacr{RFC}{RFC}{RFCs}{Request for Comments}{Request for Comments}
+\newacr{SaaS}{SaaS}{SaaSs}{Software as a Service}{Software as a Services}
+\newacr{SID}{SID}{SID}{Security Identifier}{Security Identifier}
+\newacr{SQL}{SQL}{SQLs}{Structured Query Language}{Structured Query Languages}
+\newacr{SME}{SME}{SMEs}{small and medium-sized enterprise}{small and medium-sized enterprises}
+\newacr{SNMP}{SNMP}{SNMPs}{Simple Network Monitoring Protocol}{Simple Network Monitoring Protocols}
+\newacr{SSL}{SSL}{SSLs}{Secure Socket Layer}{Secure Socket Layers}
+\newacr{TCP}{TCP}{TCPs}{Transmission Control Protocol}{Transmission Control Protocols}
+\newacr{TLS}{TLS}{TLSs}{Transport Layer Security}{Transport Layer Securities}
+\newacr{TTL}{TTL}{TTLs}{Time to Live}{Times to Live}
+\newacr{UDP}{UDP}{UDPs}{User Datagram Protocol}{User Datagram Protocols}
+\newacr{VLAN}{VLAN}{VLANs}{Virtual \acs{LAN}}{Virtual \acsp{LAN}}
+\newacr{VPN}{VPN}{VPNs}{Virtual Private Network}{Virtual Private Networks}
+\newacr{WLAN}{WLAN}{WLANs}{Wireless \acs{LAN}}{Wireless \acsp{LAN}}
+\newacr{WLC}{WLC}{WLCs}{\acs{WLAN}-Controller}{\acs{WLAN}-Controller}
+\newacr{XML}{XML}{XMLs}{Extensible Markup Language}{Extensible Markup Languages}
+\newacr{IPFIX}{IPFIX}{IPFIXs}{\acs{IP} Flow Information Export}{\acs{IP} Flow Information Exports}
+\newacr{MIB}{MIB}{MIBs}{Management Information Base}{Management Information Bases}
+\newacr{MO}{MO}{MOs}{Managed Object}{Managed Objects}
+\newacr{ASN.1}{ASN.1}{ASN.1}{Abstract Syntax Notation One}{Abstract Syntax Notation One}
+\newacr{ASCII}{ASCII}{ASCII}{American Standard Code for Information Interchange}{American Standard Code for Information Interchange}
+\newacr{RAM}{RAM}{RAM}{Random Access Memory}{Random Access Memory}
+\newacr{CPU}{CPU}{CPUs}{Central Processing Unit}{Central Processing Units}
+\newacr{CLI}{CLI}{CLIs}{Command Line Interface}{Command Line Interfaces}
+\newacr{LWAP}{LWAP}{LWAPs}{Light Weight \ac{AP}}{Light Weight \acp{AP}}
+\newacr{VTY}{VTY}{VTYs}{Virtual Terminal Line}{Virtual Terminal Lines}
+\newacr{SMTP}{SMTP}{SMTP}{Simple Mail Transfer Protocol}{Simple Mail Transfer Protocol}
+\newacr{GUI}{GUI}{GUIs}{Graphical User Interface}{Graphical User Interfaces}
+\newacr{IPS}{IPS}{IPSs}{Intrusion Prevention System}{Intrusion Prevention Systems}
+\newacr{UI}{UI}{UIs}{User Interface}{User Interfaces}
+\newacr{CSS}{CSS}{CSS}{Cascading Style Sheets}{Cascading Style Sheets}
+\newacr{HTML}{HTML}{HTML}{Hypertext Markup Language}{Hypertext Markup Language}
+\newacr{MIT}{MIT}{MIT}{Massachusetts Institute of Technology}{Massachusetts Institute of Technology}
+\newacr{PHP}{PHP}{PHP}{PHP: Hypertext Preprocessor}{PHP: Hypertext Preprocessor}
+\newacr{LR}{LR}{LR}{Links nach rechts, rechtsreduzierender Parser}{Links nach rechts, rechtsreduzierender Parser}
+\newacr{CSV}{CSV}{CSV}{Comma-Separated Values}{Comma-Separated Values}
+\newacr{NT}{NT}{NTs}{New Technology}{New Technologies}
+\newacr{SIM}{SIM}{SIM}{Security Information Management}{Security Information Management}
+\newacr{SEM}{SEM}{SEM}{Security Event Management}{Security Event Management}
+\newacr{EU}{EU}{EU}{Europäische Union}{Europäische Union}
+\newacr{DSB}{DSB}{DSB}{Datenschutzbehörde}{Datenschutzbehörden}
+\newacr{AMP}{AMP}{AMPs}{Advanced Malware Protection}{Advanced Malware Protections}
+\newacr{AP}{AP}{APs}{Access Point}{Access Points}
+\newacr{ASA}{ASA}{ASAs}{Adaptive Security Appliance}{Adaptive Security Appliances}
+\newacr{ITIL}{ITIL}{ITILs}{\acs{IT} Infrastructure Library}{\acs{IT} Infrastructure Libraries}
+\newacr{COBIT}{COBIT}{COBIT}{Control Objectives for Information and Related Technologies}{Control Objectives for Information and Related Technologies}
+\newacr{SOX}{SOX}{SOX}{Sarbanes-Oxley Act}{Sarbanes-Oxley Act}
+\newacr{ISO}{ISO}{ISO}{Internationale Organisation für Normung}{Internationale Organisation für Normung}
+\newacr{IDS}{IDS}{IDSs}{Intrusion Detection System}{Intrusion Detection Systems}
+\newacr{AWS}{AWS}{AWS}{Amazon Web Services}{Amazon Web Services}
+\newacr{MacOS}{MacOS}{MacOS}{Macintosh Operating System}{Macintosh Operating System}
+\newacr{CIM}{CIM}{CIMs}{Common Information Model}{Common Information Models}
+\newacr{SPL}{SPL}{SPLs}{Search Processing Language}{Search Processing Languages}
+\newacr{VM}{VM}{VMs}{Virtual Machine}{Virtual Machines}
+\newacr{CMDB}{CMDB}{CMDBs}{ Configuration Management Database}{ Configuration Management Databases}
+\newacr{PC}{PC}{PCs}{Personal Computer}{Personal Computers}
+
+
+% Als Beschreibung für den Glossareintrag ist der erste Satzt in Wikipedia immer ziemlich hilfreich - glac
+
+\newacrgls{SSID}{SSID}{SSIDs}{Service Set Identifier}{Service Set Identifiers}{ist ein frei wählbarer Name eines Service Sets, durch den es ansprechbar wird. Da diese Kennung oftmals manuell von einem Benutzer in Geräte eingegeben werden muss, ist sie oft eine Zeichenkette, die für Menschen leicht lesbar ist, und sie wird daher allgemein als (Funk-)Netzwerkname des \acsp{WLAN} bezeichnet.}
+\newacrgls{SIEM}{SIEM}{SIEMs}{Security Information and Event Management}{Security Information and Event Managements}{kombiniert die zwei Konzepte \acf{SIM} und \acf{SEM} für die Echtzeitanalyse von Sicherheitsalarmen aus den Quellen Anwendungen und Netzwerkkomponenten.}
+\newacrgls{LALR}{LALR}{LALR}{Look-ahead \acs{LR} Parser}{Look-ahead \acs{LR} Parser}{Look-ahead \acs{LR} Parser, wobei die Zahl in der Klammer die Anzahl der vorausschauenden Felder beschreibt.}
+\newacrgls{RMSProp}{RMSProp}{RMSProp}{Root Mean Square Propagation}{Root Mean Square Propagation}{Ein Optimizer, der die Lernrate für jedes Gewicht dynamisch adaptiert.}
+\newacrgls{Adam}{Adam}{Adam}{Adaptive Moment Estimation}{Adaptive Moment Estimation}{Eine neuere Version des \glacs{RMSProp} Optimizers, der performanter ist und auch jedes Gewicht dynamisch adaptiert.}
+\newacrgls{LSTM}{LSTM}{LSTM}{Long short-term memory}{Long short-term memories}{Long short-term memory (langes Kurzzeitgedächtnis) ist eine Technik, die dafür sorgt, dass Neurale Netzwerke ein Gedächtnis haben.}
+
+% gl
+
+\newgls{MongoDB}{MongoDB}{MongoDBs}{eine dokumentenorientierte \acs{NoSQL}-\acl{DB}.\newline\href{https://www.mongodb.com/}{https://www.mongodb.com/}}
+\newgls{Python}{Python}{Pythons}{eine universelle, üblicherweise interpretierte höhere Programmiersprache.\newline\href{https://www.python.org/}{https://www.python.org/}}
+\newgls{Index}{Index}{Indizes}{eine von der Datenstruktur getrennte Indexstruktur in einer Datenbank, die die Suche und das Sortieren nach bestimmten Feldern beschleunigt.}
+\newgls{OSI-Modell}{OSI\glsadd{OSI}-Modell}{OSI\glsadd{OSI}-Modelle}{ein Referenzmodell für Netzwerkprotokolle als Schichtenarchitektur.}
+\newgls{OSI-Schicht}{OSI\glsadd{OSI}-Schicht}{OSI\glsadd{OSI}-Schichten}{Das \gl{OSI-Modell} hat sieben Schichten: 1 -- Bitübertragung (Physical), 2 -- Sicherung (Data Link), 3 -- Vermittlung-/Paket (Network), 4 -- Transport (Transport), 5 -- Sitzung (Session), 6 -- Darstellung (Presentation), 7 -- Anwendung (Application)}
+\newgls{Daemon}{Daemon}{Daemons}{bezeichnet unter Unix oder unixartigen Systemen ein Programm, das im Hintergrund abläuft und bestimmte Dienste zur Verfügung stellt.}
+\newgls{Thread}{Thread}{Threads}{bezeichnet einen Ausführungsstrang oder eine Ausführungsreihenfolge in der Abarbeitung eines Programms. Ein Thread ist Teil eines Prozesses.}
+\newgls{Socket}{Socket}{Sockets}{ist ein vom Betriebssystem bereitgestelltes Objekt, das als Kommunikationsendpunkt dient. Ein Programm verwendet Sockets, um Daten mit anderen Programmen auszutauschen.}

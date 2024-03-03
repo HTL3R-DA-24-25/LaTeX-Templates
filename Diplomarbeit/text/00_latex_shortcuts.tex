@@ -1,0 +1,48 @@
+%%
+\newcommand{\strong}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% einfaches "siehe ..." - das Ziel muss man markieren mit \label{name} -- macht pandoc automatisch
+% einfache Variante
+%\newcommand{\kap}[1]{Kapitel~\ref{#1}, Seite~\pageref{#1}}
+%\newcommand{\siehe}[1]{siehe \kap{#1}}
+%\newcommand{\abb}[1]{Abbildung~\ref{#1}, Seite~\pageref{#1}}
+% bessere Variante - braucht varioref
+\newcommand{\kap}[1]{Kapitel~\vref{#1}}
+\newcommand{\siehe}[1]{siehe \kap{#1}}
+\newcommand{\abb}[1]{Abbildung~\vref{#1}}
+
+
+%% http://ieg.ifs.tuwien.ac.at/~aigner/download/tuwien.sty
+%Div. Abkürzungen (in Anlehnung an Jochen Köpper, jkthesis):
+%\RequirePackage{xspace}
+\newcommand{\bzw}{bzw.\@\xspace}
+\newcommand{\bzgl}{bzgl.\@\xspace}
+\newcommand{\ca}{ca.\@\xspace}
+\newcommand{\dah}{d.\thinspace{}h.\@\xspace}
+\newcommand{\Dah}{D.\thinspace{}h.\@\xspace}
+\newcommand{\ds}{d.\thinspace{}s.\@\xspace}
+\newcommand{\evtl}{evtl.\@\xspace}
+\newcommand{\ua}{u.\thinspace{}a.\@\xspace}
+\newcommand{\Ua}{U.\thinspace{}a.\@\xspace}
+\newcommand{\usw}{usw.\@\xspace}
+\newcommand{\va}{v.\thinspace{}a.\@\xspace}
+\newcommand{\vgl}{vgl.\@\xspace}
+\newcommand{\zB}{z.\thinspace{}B.\@\xspace}
+\newcommand{\ZB}{Zum Beispiel\xspace}
+
+%% https://github.com/Digital-Media/HagenbergThesis
+\newcommand{\latex}{La\-TeX\xspace} % kein schnoerkeliges LaTeX mehr
+\newcommand{\tex}{TeX\xspace}       % kein schnoerkeliges TeX mehr
+\newcommand{\bs}{\textbackslash}    % Backslash character
+\newcommand{\obnh}{\hskip 0pt } %optional break without hyphen: e.g. PlugIn{\obnh}Filter
+
+\newcommand{\sa}{s.\ auch\@\xspace}
+\newcommand{\so}{s.\ oben\xspace}
+\newcommand{\su}{s.\ unten\@\xspace}
+
+\newcommand{\uae}{u.\thinspace{}\"A.\@\xspace}
+\newcommand{\uva}{u.\thinspace{}v.\thinspace{}a.\@\xspace}
+\newcommand{\uvm}{u.\thinspace{}v.\thinspace{}m.\@\xspace}
+
+
